@@ -19,7 +19,7 @@ export default function Home() {
   }, [url, fetchCountry])
 
   return (
-    <div>
+    <div className="background">
       <div className="card-wrapper wrapper">
         {countryData.length ? (
           countryData.map((item, i) => (

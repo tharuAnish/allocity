@@ -1,0 +1,13 @@
+.navbar {
+  height: 66px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.116);
+  background-color: var(--color-primary-2);
+}
+
+.nav-text {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: whitesmoke;
+}
