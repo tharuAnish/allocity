@@ -1,0 +1,17 @@
+.countryCard {
+  margin: 30px 20px;
+  border-radius: 14px;
+  box-shadow: 2px 5px 22px rgba(0, 0, 0, 0.199);
+  height: 300px;
+}
+
+.country-image {
+  height: 200px;
+  width: 300px;
+  margin: 7px;
+  border-radius: 7px;
+}
+
+.text-wrapper {
+  margin: 10px;
+}
