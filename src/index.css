@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
 :root {
-  --color-primary-1: blueviolet;
-  --color-primary-2: rgb(218, 178, 255);
+  /* --color-primary-1: #1f2e45;
+  --color-primary-2: #182030;
+  --color-primary-3: #29374f; */
+  --color-primary-1: #012030;
+  --color-primary-2: #051c28;
+  --color-primary-3: #012e40;
+  --color-primary-text: #1778ac;
 }
 * {
   margin: 0;
