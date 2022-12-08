@@ -4,5 +4,5 @@
   place-items: center;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.116);
   background-color: var(--color-primary-2);
-  color: #1778ac;
+  color: var(--color-primary-text);
 }
