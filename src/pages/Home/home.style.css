@@ -7,3 +7,18 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+hr {
+  width: 80vw;
+  margin: auto;
+}
+
+.loading {
+  height: 82vh;
+  display: grid;
+  place-items: center;
+}
+
+.blank {
+  height: 50px;
+}
