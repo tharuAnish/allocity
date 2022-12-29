@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./countrycard.style.css"
 
 export default function CountryCard({ data }) {
@@ -9,6 +10,7 @@ export default function CountryCard({ data }) {
         <p>Native name : {data.nativeName}</p>
         <p>Capital City : {data.capital}</p>
         <p>Region : {data.region}</p>
+        <Link to={`/${data.name}`}>Read more...</Link>
       </div>
     </div>
   )
