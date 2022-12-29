@@ -16,39 +16,17 @@ export default function Home() {
     console.log(countryData)
   }, [url])
 
-  // const getCountryByRegion = async (regionName) => {
-  //   // added
-  //   try {
-  //     const res = await fetch(`${url}/region/${regionName}`)
-
-  //     if (!res.ok) throw new Error("Failed..........")
-
-  //     const data = await res.json()
-  //     setCountryData(data)
-
-  //     setIsLodaing(false)
-  //   } catch (error) {
-  //     setIsLodaing(false)
-  //     setError(false)
-  //   }
-  // }
-
   useEffect(() => {
     fetchCountry()
   }, [url, fetchCountry])
 
   return (
     <div className="background">
-      {/* <div className="filter">
-        <FilterCountry onSelect={getCountryByRegion} /> 
-      </div> // added */}
-      {/* <button onClick={() => setUrl("")}>Filter America</button> */}
-      {/* <hr /> */}
       <div className="blank"></div>
       <div className="card-wrapper wrapper">
         {countryData.length ? (
-          countryData.map((item, i) => (
-            <CountryCard key={i} data={item} isLoading={isLoading} />
+          countryData.map((item) => (
+            <CountryCard key={item.name} data={item} isLoading={isLoading} />
           ))
         ) : (
           <p className="loading">Loading...</p>
