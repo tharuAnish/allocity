@@ -7,8 +7,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link,
-  NavLink,
   Navigate,
 } from "react-router-dom"
 import Country from "./pages/Country"
@@ -16,9 +14,9 @@ import Country from "./pages/Country"
 function App() {
   return (
     <div>
-      <Navbar />
       {/* <Home /> */}
       <Router>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:name" element={<Country />} />

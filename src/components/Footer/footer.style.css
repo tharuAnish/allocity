@@ -4,6 +4,6 @@
   place-items: center;
   box-shadow: 0 3px 20px rgba(0, 0, 0, 0.116);
   background-color: var(--color-primary-2);
-  color: var(--color-primary-text);
+  color: #1e6d97;
   text-align: center;
 }
