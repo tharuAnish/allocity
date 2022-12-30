@@ -29,7 +29,12 @@ export default function Home() {
             <CountryCard key={item.name} data={item} isLoading={isLoading} />
           ))
         ) : (
-          <p className="loading">Loading...</p>
+          // <p className="loading">Loading...</p>
+          <div class="loader">
+            <div class="scanner">
+              <span>Loading...</span>
+            </div>
+          </div>
         )}
       </div>
     </div>

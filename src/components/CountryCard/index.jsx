@@ -10,8 +10,10 @@ export default function CountryCard({ data }) {
         <p>Native name : {data.nativeName}</p>
         <p>Capital City : {data.capital}</p>
         <p>Region : {data.region}</p>
-        <Link to={`/${data.name}`}>Read more...</Link>
       </div>
+      <Link to={`/${data.name}`} className="readMore">
+        Read more...
+      </Link>
     </div>
   )
 }
