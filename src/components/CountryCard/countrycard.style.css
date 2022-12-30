@@ -2,9 +2,13 @@
   margin: 15px;
   border-radius: 14px;
   box-shadow: 2px 5px 22px rgba(0, 0, 0, 0.123);
-  height: 328px;
+  height: 342px;
   background-color: var(--color-primary-3);
   cursor: pointer;
+  position: relative;
+  border: 2px solid #4e5874;
+  transition: 0.5s ease-out;
+  overflow: visible;
 }
 
 .country-image {
@@ -20,4 +24,72 @@
   width: 300px;
   color: var(--color-primary-text-2);
   line-height: 22px;
+}
+
+/* .readMore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #176c8d;
+  border: solid 3px transparent;
+  background-clip: padding-box;
+  box-shadow: 0px 0px 0px 3px #ffffff00;
+  color: #a4d3e6;
+  min-height: 43px;
+  padding: 0 13px 0 13px;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  transition: all 0.5s ease;
+  margin-top: 15px;
+  width: 160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.readMore:active {
+  transform: scale(0.9);
+  transition: all 100ms ease;
+}
+
+.readMore:hover {
+  box-shadow: 0px 0px 0px 3px var(--color-primary-text-2);
+} */
+
+.readMore {
+  transform: translate(-50%, 125%);
+  width: 60%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #008bf8;
+  color: #a4d3e6;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  text-align: center;
+}
+
+.text-body {
+  color: rgb(134, 134, 134);
+}
+
+/*Text*/
+.text-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/*Hover*/
+.countryCard:hover {
+  border-color: #008bf8;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.countryCard:hover .readMore {
+  transform: translate(-50%, 50%);
+  opacity: 1;
 }
