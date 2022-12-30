@@ -41,7 +41,7 @@ body {
 .countryInfo {
   margin-top: 130px;
   line-height: 22px;
-  color: #1e6d97;
+  color: var(--color-primary-text);
   font-size: 1.1rem;
 }
 
@@ -76,6 +76,34 @@ body {
   margin: 20px auto;
 }
 
+.noData {
+  height: 85vh;
+  display: grid;
+  place-content: center;
+}
+
+.noData img {
+  height: 60vh;
+}
+
+.backHome {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #1778ac;
+  box-shadow: 2px 3px 18px rgb(0 0 0 / 30%);
+  cursor: pointer;
+}
+.homeIcon {
+  font-size: 40px;
+  color: var(--color-primary-1);
+}
+.backHome:hover {
+  bottom: 42px;
+}
+
 @media screen and (max-width: 800px) {
   .countryData {
     border: 1px solid #1778ac;
@@ -94,6 +122,16 @@ body {
   .countryWrapper {
     width: 88%;
     margin-inline: auto;
+  }
+  .backHome {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    background-color: #1778ac;
+    box-shadow: 2px 3px 18px rgb(0 0 0 / 30%);
+    cursor: pointer;
   }
 
   /* fixing the foreground flag */

@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useFetch } from "../../hooks/useFetch"
 import "./country.style.css"
+import { FaHome } from "react-icons/fa"
+import { Link } from "react-router-dom"
 
 export default function Country() {
   const { name } = useParams()
@@ -123,8 +125,16 @@ export default function Country() {
             ))}
         </div>
       ) : (
-        <p>No Data</p>
+        <div className="noData">
+          <img src="./data-not-found.svg" alt="Error message" />
+        </div>
       )}
+
+      <Link to="/">
+        <div className="backHome">
+          <FaHome className="homeIcon" />
+        </div>
+      </Link>
     </div>
   )
 }

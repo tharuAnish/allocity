@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react"
 import CountryCard from "../../components/CountryCard"
 import "./home.style.css"
+import { FaArrowUp } from "react-icons/fa"
 // import FilterCountry from "../../components/FilterCountry"
 
 export default function Home() {
@@ -20,6 +21,29 @@ export default function Home() {
     fetchCountry()
   }, [url, fetchCountry])
 
+  //Back to top
+  let mybutton
+  window.onscroll = function () {
+    mybutton = document.getElementById("btn-back-to-top")
+    scrollFunction(mybutton)
+  }
+
+  function scrollFunction(mybutton) {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      mybutton.style.display = "block"
+    } else {
+      mybutton.style.display = "none"
+    }
+  }
+
+  function backToTop() {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
+  }
+
   return (
     <div className="background">
       <div className="blank"></div>
@@ -36,6 +60,9 @@ export default function Home() {
             </div>
           </div>
         )}
+      </div>
+      <div className="backToTop">
+        <FaArrowUp onClick={backToTop} id="btn-back-to-top" />
       </div>
     </div>
   )
