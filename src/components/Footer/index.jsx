@@ -6,7 +6,9 @@ export default function Footer() {
 
   return (
     <div className="footer">
-      <p>Copyright ©{date} - www.allocity.com - All rights reserved to</p>
+      <p>
+        Copyright ©{date} - www.allocity.com - All rights reserved to AlloCity
+      </p>
     </div>
   )
 }

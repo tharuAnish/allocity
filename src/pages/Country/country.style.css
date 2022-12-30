@@ -1,4 +1,4 @@
-.country {
+body {
   background-color: var(--color-primary-1);
 }
 
@@ -19,11 +19,13 @@
   position: absolute;
   z-index: 99;
   margin-top: -100px;
-  margin-left: 120px;
+  /* margin-left: 120px; */
   background-color: whitesmoke;
   border: 3px solid #e3e8eb;
   border-radius: 7px;
-  text-align: center;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.192);
 }
 
 .foregroundFlag img {
@@ -37,7 +39,7 @@
 }
 
 .countryInfo {
-  margin-top: 120px;
+  margin-top: 130px;
   line-height: 22px;
   color: #1e6d97;
   font-size: 1.1rem;
@@ -46,11 +48,66 @@
 .countryName {
   color: var(--color-primary-text-2);
   font-size: 2.5rem;
-  margin: 25px 0;
+  text-align: center;
+  line-height: 35px;
+}
+
+.countryHr {
+  margin: 20px auto;
+  width: 200px;
+  color: var(--color-primary-1);
 }
 
 .ul {
   margin: 7px;
   margin-left: 30px;
   font-size: 1rem;
+}
+
+.countryData {
+  border: 1px solid #1778ac;
+  box-sizing: border-box;
+  padding: 10px;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.185);
+  border-radius: 6px;
+  list-style-type: none;
+  margin: 20px 0;
+  width: 480px;
+  margin: 20px auto;
+}
+
+@media screen and (max-width: 800px) {
+  .countryData {
+    border: 1px solid #1778ac;
+    box-sizing: border-box;
+    padding: 10px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.185);
+    border-radius: 6px;
+    list-style-type: none;
+    margin: 20px 0;
+    width: 310px;
+    margin: 20px auto;
+  }
+  .backgroundFlag {
+    display: none;
+  }
+  .countryWrapper {
+    width: 88%;
+    margin-inline: auto;
+  }
+
+  /* fixing the foreground flag */
+
+  .foregroundFlag {
+    background-color: whitesmoke;
+    border: 3px solid #e3e8eb;
+    border-radius: 7px;
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.192);
+  }
+  .countryInfo {
+    /* margin-top: 230px;
+    line-height: 22px; */
+    color: #1e6d97;
+    font-size: 1.1rem;
+  }
 }
