@@ -30,8 +30,8 @@ export default function Home() {
           ))
         ) : (
           // <p className="loading">Loading...</p>
-          <div class="loader">
-            <div class="scanner">
+          <div className="loader">
+            <div className="scanner">
               <span>Loading...</span>
             </div>
           </div>
