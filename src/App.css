@@ -1,0 +1,9 @@
+/* For WebKit-based browsers (e.g., Safari) */
+.hideScroll::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.hideScroll::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border: none;
+}

@@ -4,9 +4,10 @@ import { FaArrowUp } from "react-icons/fa"
 import Hero from "../../components/heroSection/hero"
 import { useFetch } from "../../hooks/useFetch"
 import Loading from "../../components/Loading/loading"
-// import FilterCountry from "../../components/FilterCountry"
+import { useState, useEffect } from "react" // Import useState and useEffect
 
 export default function Home() {
+  const [searchInput, setSearchInput] = useState("") // Add state for search input
   const url = "https://restcountries.com/v2/all"
   const { data: countries, isLoading, error } = useFetch(url)
 
@@ -46,6 +47,8 @@ export default function Home() {
           placeholder="Search for Countries"
           type="search"
           className="input"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
         />
       </div>
       <div className="card-wrapper wrapper">
@@ -57,9 +60,13 @@ export default function Home() {
         {error && <div>{error}</div>}
 
         {countries &&
-          countries.map((item) => (
-            <CountryCard key={item.name} data={item} isLoading={isLoading} />
-          ))}
+          countries
+            .filter((country) =>
+              country.name.toLowerCase().includes(searchInput.toLowerCase())
+            )
+            .map((item) => (
+              <CountryCard key={item.name} data={item} isLoading={isLoading} />
+            ))}
       </div>
       <div className="backToTop">
         <FaArrowUp onClick={backToTop} id="btn-back-to-top" />
