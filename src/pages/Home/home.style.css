@@ -144,6 +144,42 @@ hr {
   color: var(--color-primary-1);
 }
 
+/* pagination */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 60px 40px;
+}
+
+.page {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: 10px;
+}
+
+.pagination button {
+  border: none;
+  background-color: #fff;
+  color: #333;
+  padding: 8px 12px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.pagination button.active {
+  background-color: #307aa5;
+  color: #fff;
+}
+
+.pagination button:hover {
+  background-color: #7ed6f8;
+}
+
 @media screen and (max-width: 500px) {
   .search {
     margin-inline: 30px;

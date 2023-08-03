@@ -1,33 +1,38 @@
+import React, { useState, useEffect } from "react"
 import CountryCard from "../../components/CountryCard"
 import "./home.style.css"
 import { FaArrowUp } from "react-icons/fa"
 import Hero from "../../components/heroSection/hero"
 import { useFetch } from "../../hooks/useFetch"
 import Loading from "../../components/Loading/loading"
-import { useState, useEffect } from "react" // Import useState and useEffect
+// ... (previous imports)
 
 export default function Home() {
-  const [searchInput, setSearchInput] = useState("") // Add state for search input
+  const [searchInput, setSearchInput] = useState("")
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 20
   const url = "https://restcountries.com/v2/all"
   const { data: countries, isLoading, error } = useFetch(url)
 
-  //Back to top
-  let mybutton
-  window.onscroll = function () {
-    mybutton = document.getElementById("btn-back-to-top")
-    scrollFunction(mybutton)
+  const filteredCountries = countries
+    ? countries.filter((country) =>
+        country.name.toLowerCase().includes(searchInput.toLowerCase())
+      )
+    : []
+
+  const currentItems = filteredCountries.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  )
+
+  function handlePageChange(newPage) {
+    setCurrentPage(newPage)
+    window.scrollTo(0, 0)
   }
 
-  function scrollFunction(mybutton) {
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      mybutton.style.display = "block"
-    } else {
-      mybutton.style.display = "none"
-    }
-  }
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [searchInput])
 
   function backToTop() {
     document.body.scrollTop = 0
@@ -59,14 +64,31 @@ export default function Home() {
         )}
         {error && <div>{error}</div>}
 
-        {countries &&
-          countries
-            .filter((country) =>
-              country.name.toLowerCase().includes(searchInput.toLowerCase())
-            )
-            .map((item) => (
-              <CountryCard key={item.name} data={item} isLoading={isLoading} />
-            ))}
+        {currentItems.length > 0 ? (
+          currentItems.map((item) => (
+            <CountryCard key={item.name} data={item} isLoading={isLoading} />
+          ))
+        ) : (
+          <div>No countries found.</div>
+        )}
+      </div>
+      <div className="pagination">
+        {filteredCountries.length > itemsPerPage && (
+          <div className="page">
+            {Array.from(
+              { length: Math.ceil(filteredCountries.length / itemsPerPage) },
+              (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handlePageChange(index + 1)}
+                  className={currentPage === index + 1 ? "active" : ""}
+                >
+                  {index + 1}
+                </button>
+              )
+            )}
+          </div>
+        )}
       </div>
       <div className="backToTop">
         <FaArrowUp onClick={backToTop} id="btn-back-to-top" />
