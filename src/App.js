@@ -16,7 +16,7 @@ function App() {
     <div>
       {/* <Home /> */}
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:name" element={<Country />} />

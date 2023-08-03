@@ -1,25 +1,14 @@
-import { useState, useEffect, useCallback } from "react"
 import CountryCard from "../../components/CountryCard"
 import "./home.style.css"
 import { FaArrowUp } from "react-icons/fa"
+import Hero from "../../components/heroSection/hero"
+import { useFetch } from "../../hooks/useFetch"
+import Loading from "../../components/Loading/loading"
 // import FilterCountry from "../../components/FilterCountry"
 
 export default function Home() {
-  const [countryData, setCountryData] = useState([])
-  const [url, setUrl] = useState("https://restcountries.com/v2/all")
-  const [isLoading, setIsLodaing] = useState(false)
-  // const [error, setError] = useState("")
-
-  const fetchCountry = useCallback(async () => {
-    const res = await fetch(url)
-    const json = await res.json()
-    setCountryData(json)
-    console.log(countryData)
-  }, [url])
-
-  useEffect(() => {
-    fetchCountry()
-  }, [url, fetchCountry])
+  const url = "https://restcountries.com/v2/all"
+  const { data: countries, isLoading, error } = useFetch(url)
 
   //Back to top
   let mybutton
@@ -46,20 +35,31 @@ export default function Home() {
 
   return (
     <div className="background">
-      <div className="blank"></div>
+      <Hero />
+      <div className="search">
+        <svg className="icon" aria-hidden="true" viewBox="0 0 24 24">
+          <g>
+            <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z" />
+          </g>
+        </svg>
+        <input
+          placeholder="Search for Countries"
+          type="search"
+          className="input"
+        />
+      </div>
       <div className="card-wrapper wrapper">
-        {countryData.length ? (
-          countryData.map((item) => (
-            <CountryCard key={item.name} data={item} isLoading={isLoading} />
-          ))
-        ) : (
-          // <p className="loading">Loading...</p>
-          <div className="loader">
-            <div className="scanner">
-              <span>Loading...</span>
-            </div>
+        {isLoading && (
+          <div>
+            <Loading />
           </div>
         )}
+        {error && <div>{error}</div>}
+
+        {countries &&
+          countries.map((item) => (
+            <CountryCard key={item.name} data={item} isLoading={isLoading} />
+          ))}
       </div>
       <div className="backToTop">
         <FaArrowUp onClick={backToTop} id="btn-back-to-top" />

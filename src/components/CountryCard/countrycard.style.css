@@ -2,7 +2,8 @@
   margin: 15px;
   border-radius: 14px;
   box-shadow: 2px 5px 22px rgba(0, 0, 0, 0.123);
-  height: 342px;
+  /* height: 342px; */
+  padding-bottom: 7px;
   background-color: var(--color-primary-3);
   cursor: pointer;
   position: relative;
@@ -64,5 +65,9 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
+  .countryCard .readMore {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+  }
 }

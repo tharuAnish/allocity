@@ -141,11 +141,15 @@ body {
     border: 3px solid #e3e8eb;
     border-radius: 7px;
     box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.192);
+    display: block;
+    position: relative;
+    margin-top: 40px;
+    width: fit-content;
   }
   .countryInfo {
-    /* margin-top: 230px;
-    line-height: 22px; */
     color: #1e6d97;
     font-size: 1.1rem;
+    display: block;
+    margin-top: 50px;
   }
 }
