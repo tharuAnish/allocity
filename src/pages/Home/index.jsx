@@ -5,14 +5,13 @@ import { FaArrowUp } from "react-icons/fa"
 import Hero from "../../components/heroSection/hero"
 import { useFetch } from "../../hooks/useFetch"
 import Loading from "../../components/Loading/loading"
-// ... (previous imports)
 
 export default function Home() {
   const [searchInput, setSearchInput] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 20
   const url = "https://restcountries.com/v2/all"
-  const { data: countries, isLoading, error } = useFetch(url)
+  const { data: countries, isPending, error } = useFetch(url)
 
   const filteredCountries = countries
     ? countries.filter((country) =>
@@ -56,17 +55,17 @@ export default function Home() {
           onChange={(e) => setSearchInput(e.target.value)}
         />
       </div>
+
       <div className="card-wrapper wrapper">
-        {isLoading && (
+        {isPending && (
           <div>
             <Loading />
           </div>
         )}
-        {error && <div>{error}</div>}
 
         {currentItems.length > 0 ? (
           currentItems.map((item) => (
-            <CountryCard key={item.name} data={item} isLoading={isLoading} />
+            <CountryCard key={item.name} data={item} isLoading={isPending} />
           ))
         ) : (
           <div>No countries found.</div>

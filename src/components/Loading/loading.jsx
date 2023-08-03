@@ -4,8 +4,9 @@ export default function Loading() {
   return (
     <div className="loading">
       <div className="loader">
-        Loading
-        <span></span>
+        <div className="scanner">
+          <span>Loading...</span>
+        </div>
       </div>
     </div>
   )
