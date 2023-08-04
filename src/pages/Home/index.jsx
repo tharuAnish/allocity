@@ -5,11 +5,12 @@ import { FaArrowUp } from "react-icons/fa"
 import Hero from "../../components/heroSection/hero"
 import { useFetch } from "../../hooks/useFetch"
 import Loading from "../../components/Loading/loading"
+import Error from "../../components/Error/error"
 
 export default function Home() {
   const [searchInput, setSearchInput] = useState("")
   const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 20
+  const itemsPerPage = 25
   const url = "https://restcountries.com/v2/all"
   const { data: countries, isPending, error } = useFetch(url)
 
@@ -62,14 +63,10 @@ export default function Home() {
             <Loading />
           </div>
         )}
-
-        {currentItems.length > 0 ? (
+        {currentItems &&
           currentItems.map((item) => (
             <CountryCard key={item.name} data={item} isLoading={isPending} />
-          ))
-        ) : (
-          <div>No countries found.</div>
-        )}
+          ))}
       </div>
       <div className="pagination">
         {filteredCountries.length > itemsPerPage && (

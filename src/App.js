@@ -19,7 +19,7 @@ function App() {
         {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/:name" element={<Country />} />
+          <Route path="/:alpha2Code" element={<Country />} />
           {/* * = path with any will redirect to root path */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>

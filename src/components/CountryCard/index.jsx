@@ -16,7 +16,7 @@ export default function CountryCard({ data }) {
         <p>Capital City : {data.capital}</p>
         <p>Region : {data.region}</p>
       </div>
-      <Link to={`/${data.name}`} className="readMore">
+      <Link to={`/${data.alpha2Code}`} className="readMore">
         Read more...
       </Link>
     </div>
